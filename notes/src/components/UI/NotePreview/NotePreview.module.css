@@ -1,0 +1,9 @@
+.preview {
+    border: 1px black solid;
+    padding-bottom: 5px;
+    padding-left: 3px;
+}
+.textPreview {
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
