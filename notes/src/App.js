@@ -8,7 +8,7 @@ import List from './components/list.jsx';
 
 function App() {
     const [notes, setNotes] = useState([
-        {title: 'kek', text: 'fsdfsd', id: crypto.randomUUID()},
+        {title: 'kek', text: 'еврпкенк', id: crypto.randomUUID()},
         {title: 'VVVV', text: 'grgrerpIRe', id: crypto.randomUUID()},
         {title: 'Q#', text: 'FGSGFSGSF', id: crypto.randomUUID()}
     ]);
