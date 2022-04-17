@@ -1,26 +1,26 @@
+import React from 'react';
+import * as uuid from 'uuid';
+import {useNotes} from './hooks/useNotes'
+import Note from './components/Note';
+import List from './components/list';
+import AddNewNote from './components/addNewNote'
 import './App.css';
-import React, {useState} from 'react';
 
-import Note from './components/Note.jsx';
-import NotePreview from './components/UI/NotePreview/NotePreview';
-import List from './components/list.jsx';
+const initialValue = [
+  {title: 'kek', text: 'fsdfsd', id: uuid.v4()},
+  {title: 'VVVV', text: 'grgrerpIRe', id: uuid.v4()},
+  {title: 'Q#', text: 'FGSGFSGSF', id: uuid.v4()}
+]
 
 
 function App() {
-    const [notes, setNotes] = useState([
-        {title: 'kek', text: 'еврпкенк', id: crypto.randomUUID()},
-        {title: 'VVVV', text: 'grgrerpIRe', id: crypto.randomUUID()},
-        {title: 'Q#', text: 'FGSGFSGSF', id: crypto.randomUUID()}
-    ]);
-    const [selectedNoteId, setSelectedNoteId] = useState(null);
-    const selectNote = (noteId) => {setSelectedNoteId(noteId)};
-    const selectedNote = notes.find(item => item.id == selectedNoteId);
-    console.log(selectedNote);
-    const updateText = () => {alert("test")};
+  const {notes, selectNote, selectedNote, updateText, updateTitle, addNote, removeNote} = useNotes(initialValue)
+
   return (
     <div className="App">
-        <List notes={notes} selectNote={selectNote}></List>
-        {selectedNote && <Note note={selectedNote} change={updateText}/>}
+        <List notes={notes} selectNote={selectNote} removeNote={removeNote} />
+        {selectedNote && <Note note={selectedNote} updateText={updateText} updateTitle={updateTitle}/>}
+        <AddNewNote addNote={addNote} />
     </div>
   );
 }

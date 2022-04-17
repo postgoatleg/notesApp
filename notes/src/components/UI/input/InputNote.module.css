@@ -5,7 +5,14 @@
     background-color: red;
     border: none;
     resize: none;
+    flex: 1;
+    font-size: 20px;
 }
-.input::selection {
-    border: none;
+
+.input::-webkit-scrollbar {
+  width: 0;
+}
+
+.input:focus-visible {
+  outline-width: 0;
 }

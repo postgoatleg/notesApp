@@ -1,8 +1,45 @@
+:root {
+    --note-remove-size: 20px;
+}
+
 .preview {
+    display: flex;
     border: 1px black solid;
     padding-bottom: 5px;
     padding-left: 3px;
+    height: 60px;
+    box-sizing: border-box;
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
 }
+
+.preview:hover .remove {
+    opacity: 1;
+}
+
+.noteInformation {
+    flex: 1;
+    max-width: calc(100% - var(--note-remove-size));
+}
+
+.remove {
+    width: var(--note-remove-size);
+    height: var(--note-remove-size);
+    background-color: red;
+    border-radius: 50%;
+    opacity: 0;
+    cursor: pointer;
+    
+    font-weight: bold;
+    font-size: 12px;
+    color: #fff;
+    line-height: 20px;
+    text-align: center;
+}
+
+
+.titlePreview,
 .textPreview {
     text-overflow: ellipsis;
     overflow: hidden;
