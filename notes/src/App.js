@@ -7,9 +7,7 @@ import AddNewNote from './components/addNewNote'
 import './App.css';
 
 const initialValue = [
-  {title: 'kek', text: 'fsdfsd', id: uuid.v4()},
-  {title: 'VVVV', text: 'grgrerpIRe', id: uuid.v4()},
-  {title: 'Q#', text: 'FGSGFSGSF', id: uuid.v4()}
+  {title: 'Hello!', text: 'This app created with using React. Сlick on the button at the bottom left to create a note.', id: uuid.v4()}
 ]
 
 
