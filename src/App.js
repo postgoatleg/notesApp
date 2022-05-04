@@ -8,6 +8,8 @@ import List from './components/list';
 import AddNewNote from './components/addNewNote'
 import ModalWindow from './components/ModalWindow'
 import './App.css';
+import ThemeSwitcher from './components/themeSwitcher';
+import {useStateFromLocalStorage} from "./hooks/useStateFromLocalStorage";
 
 const initialValue = [
   {title: 'Hello!', text: 'This app created with using React. Click on the button at the bottom left to create a note.', id: uuid.v4()}
@@ -16,7 +18,7 @@ const initialValue = [
 function App() {
   const {notes, selectNote, selectedNote, updateText, updateTitle, addNote, removeNote, selectedNoteId, selectedNoteIdx} = useNotes(initialValue);
   const [modalActive, setModalActive] = useState(false);
-  const [isDark, setIsDark] = useState(false);
+  const [isDark, setIsDark] = useStateFromLocalStorage('isDark', false);
   useKeyBindings({selectedNoteId, removeNote, setModalActive, selectedNoteIdx, selectNote, notes});
   const btnClass = classNames("App", {'dark': isDark});
 
@@ -26,10 +28,7 @@ function App() {
         {selectedNote && <Note note={selectedNote} updateText={updateText} updateTitle={updateTitle}/>}
         <AddNewNote addNote={addNote} setModalActive={setModalActive} />
         { modalActive && <ModalWindow addNote={addNote} active={modalActive} setActive={setModalActive}/>}
-        <label className="checkbox-ios" title="Switch theme">
-          <input type="checkbox" className="switchTheme" onChange={(e) => setIsDark(e.target.checked)} />
-          <span className="checkbox-ios-switch"/>
-        </label>
+        <ThemeSwitcher setIsDark={setIsDark} isDark={isDark}/>
     </div>
   );
 }
