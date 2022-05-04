@@ -4,7 +4,7 @@
     /*min-width: 600px;*/
     height: 100vh;
     overflow-y: auto;
-    border-right: 2px black solid;
+    border-right: 2px solid;
     border-color: var(--border-color);
 }
 
