@@ -20,7 +20,7 @@ export const useKeyBindings = ({ selectedNoteId, removeNote, setModalActive, sel
             selectNote(notes[selectedNoteIdx+1].id)
           // selectedNoteIdx--;
       }
-  }), [selectedNoteId, removeNote, selectedNoteIdx]);
+  }), [selectedNoteId, removeNote, selectedNoteIdx, notes, selectNote, setModalActive]);
   const handleKeyPress = useCallback((event) => {
     if (event.altKey) {
         actions[event.keyCode]?.()

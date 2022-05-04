@@ -25,7 +25,6 @@ const ModalWindow = ({addNote, setActive}) => {
   }
   useEffect(() => {
     const audio = new Audio('sounds/nvg_on.mp3');
-    console.log(audio);
     audio.play().then(() => "");
   }, []);
 
