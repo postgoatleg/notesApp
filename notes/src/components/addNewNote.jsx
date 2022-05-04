@@ -1,23 +1,14 @@
-import React from "react";
+import {React, useEffect} from "react";
 import PropTypes from 'prop-types'
 import styles from './addNewNote.module.css';
 
-const AddNewNote = ({addNote}) => {
-    const addNoteOnClick = async () => {
-        try{
-            // eslint-disable-next-line no-alert
-            const title = await prompt('Назание новой заметки')
-            if (title === null || title === '') {
-                return
-            }
-            addNote({title})
-        } catch (e) {
-            // no action
-        }
-    }
 
+const AddNewNote = ({addNote, setModalActive}) => {
+  const addNoteHandler = () => {
+    setModalActive(true);
+  }
     return (
-        <div className={styles.button} onClick={addNoteOnClick}>
+        <div className={styles.button} onClick={addNoteHandler}>
             <span>+</span>
         </div>
     )
@@ -25,6 +16,7 @@ const AddNewNote = ({addNote}) => {
 
 AddNewNote.propTypes = {
     addNote: PropTypes.func.isRequired,
+    setModalActive: PropTypes.func.isRequired,
 }
 
 export default AddNewNote

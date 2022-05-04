@@ -15,7 +15,7 @@ const List = ({ notes, selectNote, removeNote }) => (
 List.propTypes = {
   notes: PropTypes.arrayOf(noteType).isRequired,
   selectNote: PropTypes.func.isRequired,
-  removeNote: PropTypes.isRequired,
+  removeNote: PropTypes.func.isRequired,
 };
 
 export default List;

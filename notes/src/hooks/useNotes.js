@@ -41,6 +41,8 @@ export const useNotes = (initialValue) => {
     };
 
     const removeNote = (idToDelete) => {
+      const audioDeath = new Audio('sounds/death6.mp3');
+      audioDeath.play();
       const newNotes = notes.filter(({id}) => id !== idToDelete)
       setNotes(newNotes)
       
@@ -49,5 +51,5 @@ export const useNotes = (initialValue) => {
       }
     };
 
-    return {notes, selectNote, selectedNote, updateText, updateTitle, addNote, removeNote}
+    return {notes, selectNote, selectedNote, updateText, updateTitle, addNote, removeNote, selectedNoteId, selectedNoteIdx}
 }

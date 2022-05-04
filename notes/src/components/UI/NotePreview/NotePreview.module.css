@@ -3,8 +3,9 @@
 }
 
 .preview {
+    margin-top: -2px;
     display: flex;
-    border: 1px black solid;
+    border: 2px solid;
     border-right: none;
     padding-bottom: 5px;
     padding-left: 3px;
@@ -13,6 +14,7 @@
     width: 100%;
     overflow: hidden;
     white-space: nowrap;
+    border-color: var(--border-color);
 }
 
 .preview:hover .remove {
